@@ -76,21 +76,40 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
       <div class="flex flex-col md:flex-row gap-2 mb-2 justify-between">
         <div class="flex flex-col md:flex-row gap-2 justify-start">
           <VaButtonToggle
-            v-model="filters.isActive"
+            v-model="filters.searchOption"
             color="background-element"
             border-color="background-element"
             :options="[
-              { label: 'Active', value: true },
-              { label: 'Inactive', value: false },
+              { label: 'name', value: 'name' },
+              { label: 'Email', value: 'email' },
             ]"
           />
-          <VaInput v-model="filters.search" placeholder="Search">
+          <VaInput v-model="filters.search" placeholder="이름 혹은 이메일로 검색" @keyup.enter="searchUsers">
             <template #prependInner>
               <VaIcon name="search" color="secondary" size="small" />
             </template>
           </VaInput>
+          <VaSelect
+            v-model="filters.role"
+            placeholder="역할"
+            :options="['Role1', 'Role2', 'Role3']"
+            clearable
+            clearable-icon="cancel"
+            style="width: 100px"
+          />
+          <VaSelect
+            v-model="filters.department"
+            placeholder="소속"
+            :options="['Department1', 'Department2', 'Department3']"
+            clearable
+            clearable-icon="cancel"
+            style="width: 200px"
+          />
+          <VaButton @click="searchUsers">
+            <VaIcon name="person_search" size="large" />
+          </VaButton>
         </div>
-        <VaButton @click="showAddUserModal">Add User</VaButton>
+        <VaButton @click="showAddUserModal">Add user</VaButton>
       </div>
 
       <UsersTable
@@ -104,7 +123,6 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
       />
     </VaCardContent>
   </VaCard>
-
   <VaModal
     v-slot="{ cancel, ok }"
     v-model="doShowEditUserModal"
@@ -118,7 +136,7 @@ const beforeEditFormModalClose = async (hide: () => unknown) => {
     <EditUserForm
       ref="editFormRef"
       :user="userToEdit"
-      :save-button-label="userToEdit ? 'Save' : 'Add'"
+      :save-button-label="userToEdit ? '저장' : '추가'"
       @close="cancel"
       @save="
         (user) => {
