@@ -50,7 +50,7 @@ Ask questions at the official community [discord server](https://discord.gg/jTK
 - **Vue 3, Vite, Pinia, and Tailwind CSS -** Fast and efficient development
 - **Dark Theme -** Modern and eye-catching
 - **Global Configuration -** Effortless customization
-- **Accessibility -** Inclusive and user-friendlys
+- **Accessibility -** Inclusive and user-friendly
 - **i18n Integration -** Easy localization for global reach
 - **Educational Resource -** Ideal for learning and improving skills
 - **Responsive Design -** Adapts seamlessly to all devices
