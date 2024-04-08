@@ -48,7 +48,7 @@ Ask questions at the official community [discord server](https://discord.gg/jTK
 ### Features
 
 - **Vue 3, Vite, Pinia, and Tailwind CSS -** Fast and efficient development
-- **Dark Theme -** Modern and eye-catchings
+- **Dark Theme -** Modern and eye-catching
 - **Global Configuration -** Effortless customization
 - **Accessibility -** Inclusive and user-friendly
 - **i18n Integration -** Easy localization for global reach
